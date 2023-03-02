@@ -24,4 +24,12 @@ export default class Cocktail{
     get alc(){
         return this.#alc;
     }
+    get obj(){
+        return {
+            id: this.#id,
+            name: this.#name,
+            category: this.#category,
+            alc: this.#alc
+        }
+    }
 }

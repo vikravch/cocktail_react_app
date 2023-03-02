@@ -1,7 +1,8 @@
 import {Component} from "react";
 import Repository from '../repository/repository';
 
-class RandomCocktail extends Component {
+class RandomCocktailPage extends Component {
+    dataRepository = new Repository();
 
     constructor(props) {
         super(props);
@@ -12,10 +13,10 @@ class RandomCocktail extends Component {
     }
 
     getRandom = async ()=>{
-        const dataRepository = new Repository();
         try{
-            const res = await dataRepository.getRandomCocktail();
+            const res = await this.dataRepository.getRandomCocktail();
             console.log(res);
+            this.dataRepository.saveToHistory(res.obj);
             this.setState({...this.state, cocktailData: res});
         } catch (e) {
             this.setState({...this.state, cocktailData:undefined, loadError: 'Server error'});
@@ -35,4 +36,4 @@ class RandomCocktail extends Component {
         );
     }
 }
-export default RandomCocktail;
+export default RandomCocktailPage;
