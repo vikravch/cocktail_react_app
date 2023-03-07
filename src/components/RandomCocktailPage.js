@@ -11,6 +11,9 @@ class RandomCocktailPage extends Component {
             loadError:''
         }
     }
+    componentDidMount = () => {
+        this.getRandom();
+    }
 
     getRandom = async ()=>{
         try{
@@ -26,7 +29,7 @@ class RandomCocktailPage extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.getRandom} >Get random</button>
+                {/*<button onClick={this.getRandom} >Get random</button>*/}
                 {
                     this.state.cocktailData?
                         <span>{this.state.cocktailData.name}</span>:

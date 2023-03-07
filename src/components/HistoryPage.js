@@ -10,6 +10,11 @@ class HistoryPage extends Component {
             history: []
         }
     }
+
+    componentDidMount() {
+        this.getHistory();
+    }
+
     getHistory = ()=>{
         const arr = this.dataRepository.getHistoryList();
         this.setState({...this.state, history:arr});
@@ -17,7 +22,7 @@ class HistoryPage extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.getHistory}>Get history</button>
+                {/*<button onClick={this.getHistory}>Get history</button>*/}
                 <span>
                     {JSON.stringify(this.state.history)}
                 </span>
