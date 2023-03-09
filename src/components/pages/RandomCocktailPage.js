@@ -1,5 +1,6 @@
 import {Component} from "react";
 import Repository from '../../repository/repository';
+import Cocktail from "../general/cocktail/Cocktail";
 
 class RandomCocktailPage extends Component {
     dataRepository = new Repository();
@@ -32,7 +33,7 @@ class RandomCocktailPage extends Component {
                 {/*<button onClick={this.getRandom} >Get random</button>*/}
                 {
                     this.state.cocktailData?
-                        <span>{this.state.cocktailData.name}</span>:
+                        <Cocktail cocktail={this.state.cocktailData}/>:
                         <h4>{this.state.loadError}</h4>
                 }
             </div>

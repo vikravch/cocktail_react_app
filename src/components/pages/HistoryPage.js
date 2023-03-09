@@ -23,9 +23,13 @@ class HistoryPage extends Component {
         return (
             <div>
                 {/*<button onClick={this.getHistory}>Get history</button>*/}
-                <span>
-                    {JSON.stringify(this.state.history)}
-                </span>
+                <div>
+                    {this.state.history.map((historyItem)=>{
+                        return <div>
+                            <span>{historyItem.name}</span>
+                        </div>
+                    })}
+                </div>
             </div>
         );
     }
