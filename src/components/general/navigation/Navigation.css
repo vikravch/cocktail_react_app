@@ -1,0 +1,14 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    background: cadetblue;
+    padding-left: 3vw;
+}
+.nav span{
+    padding: 1vw;
+    font-weight: bold;
+    cursor: pointer;
+}
+.nav span.active{
+    background: darkseagreen;
+}

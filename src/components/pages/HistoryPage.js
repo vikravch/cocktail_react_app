@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Repository from "../repository/repository";
+import Repository from "../../repository/repository";
 
 class HistoryPage extends Component {
     dataRepository = new Repository();

@@ -1,5 +1,5 @@
 import {Component} from "react";
-import Repository from '../repository/repository';
+import Repository from '../../repository/repository';
 
 class RandomCocktailPage extends Component {
     dataRepository = new Repository();
