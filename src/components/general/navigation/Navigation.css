@@ -1,5 +1,6 @@
 .nav{
     display: flex;
+    flex: 1;
     flex-direction: row;
     background: cadetblue;
     padding-left: 3vw;
@@ -11,4 +12,12 @@
 }
 .nav span.active{
     background: darkseagreen;
+}
+
+.nav span.username{
+    font-weight: 500;
+}
+.nav span.logout{
+    font-weight: 500;
+    text-decoration: underline;
 }

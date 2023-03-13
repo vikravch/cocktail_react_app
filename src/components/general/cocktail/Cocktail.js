@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 // S - Single responsibility principle
-// O
+// O - Open-closed principle
 // L - Liskov substitution principle
 // I
 // D
@@ -11,6 +11,7 @@ class Cocktail extends Component {
     render() {
         return (
             <div>
+                <h3>Cocktail for you {this.props.username}</h3>
                 <h2>{this.props.cocktail.name}</h2>
                 <div>{`Category: ${this.props.cocktail.category}`}</div>
                 <div>{`Contains Alcohol: ${this.props.cocktail.alc}`}</div>
