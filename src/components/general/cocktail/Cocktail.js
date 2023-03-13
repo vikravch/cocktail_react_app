@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {AppContext} from "../../context/contextCreator";
 
 // S - Single responsibility principle
 // O - Open-closed principle
@@ -11,7 +12,12 @@ class Cocktail extends Component {
     render() {
         return (
             <div>
-                <h3>Cocktail for you {this.props.username}</h3>
+                <AppContext.Consumer>
+                    {
+                        value =>
+                            <h3>Cocktail for you {value.name}</h3>
+                    }
+                </AppContext.Consumer>
                 <h2>{this.props.cocktail.name}</h2>
                 <div>{`Category: ${this.props.cocktail.category}`}</div>
                 <div>{`Contains Alcohol: ${this.props.cocktail.alc}`}</div>
