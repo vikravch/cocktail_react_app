@@ -2,6 +2,14 @@
 import Cocktail from "./Cocktail";
 import {Api, FakeApi} from "../data/api";
 import * as LocalStore from "../data/local_store";
+/*
+interface Repository{
+    async getRandomCocktail();
+    saveToHistory(cocktail);
+    getHistoryList();
+}
+*/
+
 
 export default class DataRepository{
     async getRandomCocktail(){

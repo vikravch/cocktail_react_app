@@ -14,3 +14,9 @@ export class FakeApi{
         });
     }
 }
+
+/*
+interface ApiContract{
+    static async getRandom();
+}
+*/

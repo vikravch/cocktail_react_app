@@ -4,8 +4,8 @@ import {AppContext} from "../../context/contextCreator";
 // S - Single responsibility principle
 // O - Open-closed principle
 // L - Liskov substitution principle
-// I
-// D
+// I - Interface segregation principle
+// D - Dependency inversion principle
 // S.O.L.I.D.
 
 class Cocktail extends Component {
