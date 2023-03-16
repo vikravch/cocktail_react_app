@@ -1,33 +1,28 @@
 import React, {Component} from 'react';
 import './Navigation.css';
-import {AppContext} from "../../context/contextCreator";
+import withContext from "../../context/withContext";
+
 class Navigation extends Component {
     render() {
         return (
-                    <AppContext.Consumer>
-                        {value => (
-                            <div className={"nav"}>
-                                <span className={(value.page==='random')?"active":""} onClick={
-                                    ()=>{
-                                        value.switchPage('random');
+            <>
+                <div className={"nav"}>
+                    <span className={(this.props.context.page === 'random') ? "active" : ""} onClick={
+                        () => {
+                            this.props.context.switchPage('random');
                                     }}>Random</span>
-                                <span className={(value.page==='history')?"active":""} onClick={
-                                    ()=>{
-                                        value.switchPage('history');
-                                    }}>History</span>
-                                <span className={"username"}>
-                                        {value.name}
+                    <span className={(this.props.context.page === 'history') ? "active" : ""} onClick={
+                        () => {
+                            this.props.context.switchPage('history');
+                        }}>History</span>
+                    <span className={"username"}>
+                                        {this.props.context.name}
                                 </span>
-                                <span className={"logout"}>Log out</span>
-                            </div>
-                        )
-
-                        }
-                    </AppContext.Consumer>
-
-
+                    <span className={"logout"}>Log out</span>
+                </div>
+            </>
         );
     }
 }
 
-export default Navigation;
+export default withContext(Navigation);

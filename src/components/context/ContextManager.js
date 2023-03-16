@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {AppContext} from "./contextCreator";
 
+// Higher order component
 class ContextManager extends Component {
     constructor(props){
         super(props);
@@ -35,7 +36,10 @@ class ContextManager extends Component {
                     page: this.state.page,
                     name: this.state.name,
                     nameSaved: this.state.nameSaved,
-                    switchPage: this.switchTab
+                    switchPage: this.switchTab,
+                    changeName: this.changeName,
+                    loginHandler: this.loginHandler,
+                    checkBoxChangeHandler: this.checkBoxChangeHandler
                 }}
             >
                 {this.props.children}

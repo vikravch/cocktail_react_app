@@ -12,11 +12,7 @@ class App extends Component{
         if(this.state.page === 'login'){
             return (
                 <ContextManager>
-                    <LoginPage
-                        changeName={this.changeName}
-                        checkBoxChangeHandler={this.checkBoxChangeHandler}
-                        loginHandler={this.loginHandler}
-                    />
+                    <LoginPage/>
                 </ContextManager>
             );
         } else {
