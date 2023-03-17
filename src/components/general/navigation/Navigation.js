@@ -11,10 +11,17 @@ class Navigation extends Component {
                         () => {
                             this.props.context.switchPage('random');
                                     }}>Random</span>
+
                     <span className={(this.props.context.page === 'history') ? "active" : ""} onClick={
                         () => {
                             this.props.context.switchPage('history');
                         }}>History</span>
+
+                    <span className={(this.props.context.page === 'categories') ? "active" : ""} onClick={
+                        () => {
+                            this.props.context.switchPage('categories');
+                        }}>Categories</span>
+
                     <span className={"username"}>
                                         {this.props.context.name}
                                 </span>

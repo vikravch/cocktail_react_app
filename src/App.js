@@ -4,30 +4,38 @@ import React, {Component} from "react";
 import HistoryPage from "./components/pages/HistoryPage";
 import Navigation from "./components/general/navigation/Navigation";
 import LoginPage from "./components/pages/LoginPage";
-import ContextManager from "./components/context/ContextManager";
+import withContext from "./components/context/withContext";
+import CategoryPage from "./components/pages/CategoryPage";
 
 class App extends Component{
 
     render(){
-        if(this.state.page === 'login'){
-            return (
-                <ContextManager>
-                    <LoginPage/>
-                </ContextManager>
-            );
+        let selectedPage;
+        switch (this.props.context.page){
+            case 'random':
+                selectedPage = <RandomCocktailPage/>;
+                break;
+            case 'history':
+                selectedPage = <HistoryPage/>;
+                break;
+            case 'categories':
+                selectedPage = <CategoryPage/>;
+                break;
+            default:
+                selectedPage = <h1>Unknown path</h1>;
+        }
+
+        if(this.props.context.page === 'login'){
+            return <LoginPage/>;
         } else {
             return(
-                <ContextManager>
+                <>
                     <Navigation/>
-                    {
-                        (this.state.page === 'random')?
-                            <RandomCocktailPage/>:
-                            (this.state.page === 'history')?<HistoryPage/>:
-                                <h1>Unknown path</h1>
-                    }
-                </ContextManager>);
+                    { selectedPage }
+                </>
+            );
         }
     }
 }
 
-export default App;
+export default withContext(App);

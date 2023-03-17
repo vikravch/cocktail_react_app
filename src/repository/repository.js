@@ -1,12 +1,14 @@
 // Domain - repository, rules of getting and data management
-import Cocktail from "./Cocktail";
 import {Api, FakeApi} from "../data/api";
 import * as LocalStore from "../data/local_store";
+import Cocktail from "./Cocktail";
+import Category from "./Category";
 /*
 interface Repository{
     async getRandomCocktail();
     saveToHistory(cocktail);
     getHistoryList();
+    async getCategories();
 }
 */
 
@@ -23,6 +25,12 @@ export default class DataRepository{
     }
     getHistoryList(){
         return LocalStore.getHistoryFromStore();
+    }
+    async getCategories(){
+        const responseData = await Api.getCategories();
+        return responseData.drinks.map((item)=>{
+            return new Category(item);
+        });
     }
 }
 
@@ -41,5 +49,11 @@ class FakeRepository{
             category: 'Test category',
             alc: false
         }];
+    }
+    async getCategories(){
+        const responseData = await FakeApi.getCategories();
+        return responseData.drinks.map((item)=>{
+            return new Category(item);
+        });
     }
 }
