@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import withContext from "../context/withContext";
+import Route from "react-router-dom/es/Route";
+import {Link} from "react-router-dom";
 
 class LoginPage extends Component {
     render() {
@@ -13,7 +15,12 @@ class LoginPage extends Component {
                             <input type={"checkbox"} onChange={this.props.context.checkBoxChangeHandler}/>
                             Save my name
                         </div>
-                        <button onClick={this.props.context.loginHandler}>Log in</button>
+                        {/*<Route render={({history}) => (
+                            <button onClick={()=>{history.push('/random')}}>Log in</button>
+                        )}/>*/}
+                        <Link to={'/random'}>
+                            <h3>Log in</h3>
+                        </Link>
                     </>
         );
     }

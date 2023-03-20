@@ -6,14 +6,9 @@ class ContextManager extends Component {
     constructor(props){
         super(props);
         this.state = {
-            page: 'login',
             name: '',
             nameSaved: false,
         }
-    }
-    switchTab = (pagePath) => {
-        console.log(pagePath);
-        this.setState({...this.state, page: pagePath});
     }
     changeName = (event) =>{
         this.setState({...this.state, name: event.target.value});
@@ -23,7 +18,6 @@ class ContextManager extends Component {
         if(this.state.nameSaved){
             localStorage.setItem("userName", this.state.name);
         }
-        this.switchTab('random');
     }
     checkBoxChangeHandler = (event)=>{
         console.log(event.target.checked);
@@ -33,10 +27,8 @@ class ContextManager extends Component {
         return (
             <AppContext.Provider
                 value={{
-                    page: this.state.page,
                     name: this.state.name,
                     nameSaved: this.state.nameSaved,
-                    switchPage: this.switchTab,
                     changeName: this.changeName,
                     loginHandler: this.loginHandler,
                     checkBoxChangeHandler: this.checkBoxChangeHandler

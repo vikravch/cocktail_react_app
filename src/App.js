@@ -6,36 +6,26 @@ import Navigation from "./components/general/navigation/Navigation";
 import LoginPage from "./components/pages/LoginPage";
 import withContext from "./components/context/withContext";
 import CategoryPage from "./components/pages/CategoryPage";
+import Switch from "react-router-dom/es/Switch";
+import Route from "react-router-dom/es/Route";
+import withRouter from "react-router-dom/es/withRouter";
 
 class App extends Component{
 
     render(){
-        let selectedPage;
-        switch (this.props.context.page){
-            case 'random':
-                selectedPage = <RandomCocktailPage/>;
-                break;
-            case 'history':
-                selectedPage = <HistoryPage/>;
-                break;
-            case 'categories':
-                selectedPage = <CategoryPage/>;
-                break;
-            default:
-                selectedPage = <h1>Unknown path</h1>;
-        }
-
-        if(this.props.context.page === 'login'){
-            return <LoginPage/>;
-        } else {
-            return(
-                <>
-                    <Navigation/>
-                    { selectedPage }
-                </>
-            );
-        }
+        return (
+            <>
+                {(this.props.location.pathname === '/') ? <></> : <Navigation/>}
+                <Switch>
+                    <Route path={'/'} exact component={LoginPage}/>
+                    <Route path={'/random'} exact component={RandomCocktailPage}/>
+                    <Route path={'/history'} exact component={HistoryPage}/>
+                    <Route path={'/categories'} exact component={CategoryPage}/>
+                    <Route component={LoginPage}/> {/*default*/}
+                </Switch>
+            </>
+        )
     }
 }
 
-export default withContext(App);
+export default withRouter(withContext(App));
