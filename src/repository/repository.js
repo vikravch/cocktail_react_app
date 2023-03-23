@@ -3,6 +3,7 @@ import {Api, FakeApi} from "../data/api";
 import * as LocalStore from "../data/local_store";
 import Cocktail from "./Cocktail";
 import Category from "./Category";
+import BaseCocktail from "./BaseCocktail";
 /*
 interface Repository{
     async getRandomCocktail();
@@ -32,6 +33,12 @@ export default class DataRepository{
             return new Category(item);
         });
     }
+    async getCocktailsByCategory(category){
+        const response = await Api.getCocktailsByCategory(category);
+        return response.drinks.map(
+            (item)=> BaseCocktail.fromJSON(item)
+        );
+    }
 }
 
 class FakeRepository{
@@ -55,5 +62,11 @@ class FakeRepository{
         return responseData.drinks.map((item)=>{
             return new Category(item);
         });
+    }
+    async getCocktailsByCategory(category){
+        const response = await FakeApi.getCocktailsByCategory(category);
+        return response.drinks.map(
+            (item)=> BaseCocktail.fromJSON(item)
+        );
     }
 }

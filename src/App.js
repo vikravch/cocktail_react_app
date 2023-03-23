@@ -20,7 +20,7 @@ class App extends Component{
                     <Route path={'/'} exact component={LoginPage}/>
                     <Route path={'/random'} exact component={RandomCocktailPage}/>
                     <Route path={'/history'} exact component={HistoryPage}/>
-                    <Route path={'/categories'} exact component={CategoryPage}/>
+                    <Route path={['/categories','/categories/:category']} exact component={CategoryPage}/>
                     <Route component={LoginPage}/> {/*default*/}
                 </Switch>
             </>

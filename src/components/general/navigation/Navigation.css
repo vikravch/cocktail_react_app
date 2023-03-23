@@ -5,6 +5,10 @@
     background: cadetblue;
     padding-left: 3vw;
 }
+.link{
+    display: block;
+    height: 3vh;
+}
 .nav span{
     padding: 1vw;
     font-weight: bold;

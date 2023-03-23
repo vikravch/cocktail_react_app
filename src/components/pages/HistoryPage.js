@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Repository from "../../repository/repository";
+import '../general/styles.css'
+import './HistoryPage.css'
 
 class HistoryPage extends Component {
     dataRepository = new Repository();
@@ -25,7 +27,7 @@ class HistoryPage extends Component {
                 {/*<button onClick={this.getHistory}>Get history</button>*/}
                 <div>
                     {this.state.history.map((historyItem)=>{
-                        return <div>
+                        return <div className={'item'}>
                             <span>{historyItem.name}</span>
                         </div>
                     })}

@@ -1,0 +1,11 @@
+.item {
+    background-color: lightblue;
+    display: block;
+    cursor: pointer;
+    height: 3vh;
+    padding: 1vh;
+}
+
+.item:hover {
+    background-color: #999;
+}
